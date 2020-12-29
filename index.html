@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Marco</title>
+
+    <!-- Style Sheet -->
+    <style>
+    /* Full-width input fields */
+    #login_modal input[type=text], input[type=password] {
+      width: 80%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      margin-bottom: 1rem;
+      }
+      
+    /* Set a style for all buttons */
+    #login_modal button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 0;
+      border: none;
+      cursor: pointer;
+      width: 80%;
+    }
+    #login_modal button:hover {
+      opacity: 0.8;
+    }
+
+    /* The Modal (background) */
+    #login_modal.modal{
+      display: block; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content/Box */
+    #login_modal .modal-content {
+      background-color: #101114;
+      border: 1px solid #888;
+      width: 80%; /* Could be more or less, depending on screen size */
+      color: #fff;
+      text-align: center;
+      margin: auto;
+      margin-top: 5rem;
+      max-width: 700px;
+      padding-top: 4rem;
+      padding-bottom: 5rem;
+    }
+    #login_modal h1{
+      margin: 0;
+      font-size: 4rem;
+    }
+    #login_modal h2{
+      margin-top: .5rem;
+      margin-bottom: .7rem;
+      font-size: 3rem;
+    }
+    #login_modal h3{
+      font-size: 1.7rem;
+      width: 65%;
+      margin: auto;
+      font-weight: 100;
+      line-height: 100%;
+    }
+    #login_modal p{
+      margin: 0;
+      font-size: 1.7rem;
+      margin-top: 3rem;
+    }
+    #valid_psw{
+      display: none;
+      color: red;
+      margin: auto;
+      margin-top: -.5rem;
+      margin-bottom: .5rem;
+      width: 80%;
+      text-align: left;
+    }
+    /* Add Zoom Animation */
+    .animate {
+      -webkit-animation: animatezoom 0.6s;
+      animation: animatezoom 0.6s
+    }
+    @-webkit-keyframes animatezoom {
+      from {-webkit-transform: scale(0)} 
+      to {-webkit-transform: scale(1)}
+    }
+    @keyframes animatezoom {
+      from {transform: scale(0)} 
+      to {transform: scale(1)}
+    }
+    @media only screen and (max-width: 768px){
+      #login_modal h1{
+        display: none;
+      }
+      #login_modal p{
+        margin-top: 1rem;
+      }
+    }
+    </style>
+    <!-- End style sheet -->
+
+  </head>
+  <body>
+    <div id="login_modal" class="modal">
+      <div class="modal-content animate">
+        <h1>MARCO</h1>
+        <h2>Download Pricelist</h2>
+        <h3>Please enter your password to download the pricelist</h3>
+        <p>Password</p>
+        <input id="input_psw" type="password" placeholder="Enter Password" name="psw" required>
+        <div id="valid_psw">
+          Please enter valid password!
+        </div>
+        <button id="download_btn" onclick="chooseUrl()">GO TO DOWNLOAD PAGE</button>
+      </div>
+    </div>
+    <!-- Script -->
+    <script>
+      function chooseUrl() {
+          var password = document.getElementById("input_psw").value;
+          var trade_psw = "marcotrade1220";
+          var whole_psw = "marcowholesale1220";
+          switch (password) {
+              case trade_psw:
+                  document.getElementById("valid_psw").style.display = "none";
+                  window.location.href = "https://www.marcofabrics.com.au/trade";
+                  break;
+              case whole_psw:
+                  document.getElementById("valid_psw").style.display = "none";
+                  window.location.href = "https://www.marcofabrics.com.au/wholesale";
+                  break;
+              default:
+                  document.getElementById("valid_psw").style.display = "block";
+            }
+      }
+    </script>
+    <!-- End script -->
+
+  </body>
+</html>
